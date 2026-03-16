@@ -134,7 +134,7 @@ body {
     justify-content: space-between;
 }
 
-.girarseta {
+.girarseta div  {
     animation-name: animar1;
     animation-duration: 0.75s;
     animation-fill-mode: forwards;
