@@ -17,13 +17,14 @@
 }
 
 .inicio {
+    min-height: 700px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     background-image: url(fundo.jpg);
-    background-clip: ;
     background-size: cover;
 }
 
@@ -38,6 +39,12 @@
     max-height: 250px;
 
 }
+
+a  {
+    text-decoration: none;
+    color: black;  
+}
+
 
 .cardInicio {
     background-color: oklch(92% 0.004 286.32);
@@ -69,4 +76,22 @@
     max-width: 250px;
     max-height: 250px;
 
+}
+
+.textoCardInicio p {
+    font-size: 18px;
+}
+
+.textoCardInicio h3 {
+    font-size: 22px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.textoInicio2 a {
+    font-size: 18px;
+}
+
+.textoInicio2 h3 {
+    font-size: 22px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
