@@ -96,6 +96,30 @@ a  {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.semana {
-    
+
+.cardPudim {
+    box-shadow: 2px 2px 7px black;
+    background-color:  oklch(92% 0.004 286.32);
+    padding: 15px;
+    max-width: 30%;
+    max-height: 20%;   
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.cardPudim img {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.linkPudim {
+    text-align: center;
+    margin-top: 10px;
+    background-color: chocolate;
+    border-radius: 20px;
+}
+
+.linkPudim :hover {
+    font-size: 110%;
 }
