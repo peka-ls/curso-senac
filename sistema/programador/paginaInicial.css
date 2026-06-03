@@ -1,0 +1,14 @@
+.corbarra {
+    background-color: oklch(70.7% 0.165 254.624) !important;
+    color: #330672 !important
+}
+
+a {
+    color: #330672 !important
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
