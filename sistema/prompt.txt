@@ -1,0 +1,11 @@
+- No sistema, implemente o upload de fotos em produto e mercado 
+- Implemente a tela de login do mercado, cada mercado tem email e senha, o mercado ira gerenciar seus produtos, e podera ver apenas os produtos de seu mercado
+- Deixe os card da index e mercadoDetalhe mais bonitos, os deixe mais moderno e profissional, mantendo as cores 
+- No administrativo (a parte exclusiva da empresa, geralmente cadastro) crie a aba de receitas, onde sera cadastrado a receita, nome de receita, foto, descrição da receita, posteriormente quando estiver cadastrando o produto, eu vincularei varias
+receitas a esse produto especifico, na tela publica, mercadoDetalhe sera possivel ver todas as receitas daquele produto em forma de lista
+- Na tela mercadoDetalhe, coloque um banner com a foto do mercado, e em seguida as informações do mercado como email, endereco, telefone, mapa em algum lugar e etc, cada card tera um botao 
+que sera possivel acessar o whatsapp de acordo com o telefone, que enviara uma mensagem perguntado se o produto X esta disponivel
+- menu lateral na area de cadastros esta cortando (bug visual) em resoluções mais baixas ou em zoons maiores no navegador, corriga isso
+- coloque mascara no campo de telefone, cpf, cnpj, e preco
+- coloque rodapé na index e mercadoDetalhe
+- colocar contador de visualizacoes, e prova social na index

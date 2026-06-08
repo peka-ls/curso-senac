@@ -92,13 +92,13 @@
             </div>
             <div class="col-md-5">
               <form action="<?=$destino?>" method="post" class="p-3">
-                <h3> <i class="fa-solid fa-circle-plus"></i> Cadastro </h3>
+                <h3> <i class="fa-solid fa-circle-plus"></i> Cadastro de produto </h3>
                  <div class="mb-3">
                     <label class="form-label"> id </label>
                     <input value="<?php echo isset($produtos) ? $produtos['id'] : "" ?>" type="text" name="id" class="form-control" readonly>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label"> Nome </label>
+                    <label class="form-label"> Nome do produto </label>
                     <input value="<?php echo isset($produtos) ? $produtos['nome'] : "" ?>" type="text" name="nome" class="form-control">
                 </div>
                  <div class="mb-3">
