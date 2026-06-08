@@ -14,6 +14,11 @@
     //executar sql
     $dados = mysqli_query($conexao, $sql);
     $produtos = mysqli_fetch_assoc($dados);
+    $receitasProduto = [];
+    $dadosReceitasProduto = mysqli_query($conexao, "SELECT receita_id FROM produto_receita WHERE produto_id='$id'");
+    while ($receitaProduto = mysqli_fetch_assoc($dadosReceitasProduto)) {
+      $receitasProduto[] = $receitaProduto['receita_id'];
+    }
     //destino será alterado, para o caminho do alterar
     $destino = "./backend/produto/alterar.php";
   }
@@ -71,7 +76,7 @@
     
    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 bg-dark">
+            <div class="col-md-2 bg-dark coluna-sidebar">
                 <aside id="sidebar" class="sidebar p-3 text-white bg-dark">
                     <h4> Meu painel </h4>
                     
@@ -87,11 +92,14 @@
                         <li class="nav-item"> 
                             <a class="nav-link" href="./produto.php"> <i class="fa-solid fa-basket-shopping" style="color: rgb(255, 255, 255);"></i> Produtos</a>
                         </li>
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="./receita.php"> <i class="fa-solid fa-book-open" style="color: rgb(255, 255, 255);"></i> Receitas</a>
+                        </li>
                     </ul>
                 </aside>
             </div>
             <div class="col-md-5">
-              <form action="<?=$destino?>" method="post" class="p-3">
+              <form action="<?=$destino?>" method="post" enctype="multipart/form-data" class="p-3">
                 <h3> <i class="fa-solid fa-circle-plus"></i> Cadastro de produto </h3>
                  <div class="mb-3">
                     <label class="form-label"> id </label>
@@ -103,7 +111,7 @@
                 </div>
                  <div class="mb-3">
                     <label class="form-label"> Preço </label>
-                    <input value="<?php echo isset($produtos) ? $produtos['preco'] : "" ?>" type="text" name="preco" class="form-control">
+                    <input value="<?php echo isset($produtos) ? $produtos['preco'] : "" ?>" type="text" name="preco" class="form-control mascara-preco">
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Disponibilidade </label>
@@ -111,7 +119,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Imagem </label>
-                    <input value="<?php echo isset($produtos) ? $produtos['imagem'] : "" ?>" type="text" name="imagem" class="form-control">
+                    <input value="<?php echo isset($produtos) ? $produtos['imagem'] : "" ?>" type="hidden" name="imagem_atual">
+                    <input type="file" name="imagem" class="form-control" accept="image/*">
+                    <?php if (!empty($produtos['imagem'])) { ?>
+                      <img src="<?= $produtos['imagem'] ?>" class="preview-upload mt-2" alt="Imagem do produto">
+                    <?php } ?>
                 </div>
 
                 <div class="mb-3">
@@ -125,8 +137,21 @@
                           
                         
                       ?>
-                      <option  value=" <?=$mercado['id']?> "> <?= $mercado['nome'] ?> </option> 
+                      <option value="<?=$mercado['id']?>" <?php echo (isset($produtos) && $produtos['mercado_id'] == $mercado['id']) ? 'selected' : '' ?>> <?= $mercado['nome'] ?> </option> 
 
+                      <?php  }?>
+                     </select> 
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label"> Receitas vinculadas </label>
+                    <select name="receitas[]" class="form-select" multiple size="5">
+                      <?php 
+                        $buscaReceitas = mysqli_query($conexao, "SELECT * FROM receita ORDER BY nome");
+                        while($receita = $buscaReceitas->fetch_assoc()) {
+                          $selecionada = (isset($receitasProduto) && in_array($receita['id'], $receitasProduto)) ? 'selected' : '';
+                      ?>
+                      <option value="<?=$receita['id']?>" <?=$selecionada?>><?= $receita['nome'] ?></option> 
                       <?php  }?>
                      </select> 
                 </div>

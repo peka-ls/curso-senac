@@ -69,7 +69,7 @@
     
    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 bg-dark">
+            <div class="col-md-2 bg-dark coluna-sidebar">
                 <aside id="sidebar" class="sidebar p-3 text-white bg-dark">
                     <h4> Meu painel </h4>
                     <h5> Bem vindo(a)<?php echo $_SESSION['usuario']?></h5>
@@ -83,6 +83,9 @@
                         </li>
                         <li class="nav-item"> 
                             <a class="nav-link" href="./produto.php"> <i class="fa-solid fa-basket-shopping" style="color: rgb(255, 255, 255);"></i> Produtos</a>
+                        </li>
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="./receita.php"> <i class="fa-solid fa-book-open" style="color: rgb(255, 255, 255);"></i> Receitas</a>
                         </li>
                     </ul>
                 </aside>
@@ -100,7 +103,7 @@
                 </div>
                  <div class="mb-3">
                     <label class="form-label"> Cpf </label>
-                    <input value="<?php echo isset($usuarios) ? $usuarios['cpf'] : "" ?>" type="text" name="cpf" class="form-control">
+                    <input value="<?php echo isset($usuarios) ? $usuarios['cpf'] : "" ?>" type="text" name="cpf" class="form-control mascara-cpf">
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Email </label>

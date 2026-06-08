@@ -71,7 +71,7 @@
     
    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 bg-dark">
+            <div class="col-md-2 bg-dark coluna-sidebar">
                 <aside id="sidebar" class="sidebar p-3 text-white bg-dark">
                     <h4> Meu painel </h4>
                     
@@ -87,11 +87,14 @@
                         <li class="nav-item"> 
                             <a class="nav-link" href="./produto.php"> <i class="fa-solid fa-basket-shopping" style="color: rgb(255, 255, 255);"></i> Produtos</a>
                         </li>
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="./receita.php"> <i class="fa-solid fa-book-open" style="color: rgb(255, 255, 255);"></i> Receitas</a>
+                        </li>
                     </ul>
                 </aside>
             </div>
             <div class="col-md-5">
-              <form action="<?=$destino?>" method="post" class="p-3">
+              <form action="<?=$destino?>" method="post" enctype="multipart/form-data" class="p-3">
                 <h3> <i class="fa-solid fa-circle-plus"></i> Cadastro </h3>
                  <div class="mb-3">
                     <label class="form-label"> id </label>
@@ -103,7 +106,7 @@
                 </div>
                  <div class="mb-3">
                     <label class="form-label"> Cnpj </label>
-                    <input value="<?php echo isset($mercados) ? $mercados['cnpj'] : "" ?>" type="text" name="cnpj" class="form-control">
+                    <input value="<?php echo isset($mercados) ? $mercados['cnpj'] : "" ?>" type="text" name="cnpj" class="form-control mascara-cnpj">
                 </div>
                 <div class="mb-3">
                     <label class="form-label"> Endereço </label>
@@ -121,12 +124,16 @@
 
                 <div class="mb-3">
                     <label class="form-label"> telefone </label>
-                    <input value="<?php echo isset($mercados) ? $mercados['telefone'] : "" ?>" type="text" name="telefone" class="form-control">
+                    <input value="<?php echo isset($mercados) ? $mercados['telefone'] : "" ?>" type="text" name="telefone" class="form-control mascara-telefone">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label"> foto </label>
-                    <input value="<?php echo isset($mercados) ? $mercados['foto'] : "" ?>" type="text" name="foto" class="form-control">
+                    <input value="<?php echo isset($mercados) ? $mercados['foto'] : "" ?>" type="hidden" name="foto_atual">
+                    <input type="file" name="foto" class="form-control" accept="image/*">
+                    <?php if (!empty($mercados['foto'])) { ?>
+                      <img src="<?= $mercados['foto'] ?>" class="preview-upload mt-2" alt="Foto do mercado">
+                    <?php } ?>
                 </div>
 
                 <div class="mb-3">

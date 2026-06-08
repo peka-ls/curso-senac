@@ -9,3 +9,4 @@ que sera possivel acessar o whatsapp de acordo com o telefone, que enviara uma m
 - coloque mascara no campo de telefone, cpf, cnpj, e preco
 - coloque rodapé na index e mercadoDetalhe
 - colocar contador de visualizacoes, e prova social na index
+respeite a logica e estrutura do projeto, apos a alteração, me mande as alterações necessarias em sql 

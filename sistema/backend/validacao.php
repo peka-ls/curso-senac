@@ -12,7 +12,7 @@ if (!isset($_SESSION['email']) or !isset($_SESSION['senha'])) {
     unset($_SESSION['senha']);
 
     //manda login
-    header('location:../backend/login.php');
+    header('location:login.php');
 
     exit;
 }

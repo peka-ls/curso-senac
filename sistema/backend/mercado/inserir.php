@@ -1,14 +1,15 @@
 <?php
 include '../conexao.php';
+include '../upload.php';
 //receber os dados dos names do frontend
-$nome = $_REQUEST['nome'];
-$email = $_REQUEST['email'];
-$cnpj = $_REQUEST['cnpj'];
-$senha = $_REQUEST['senha'];
-$endereco = $_REQUEST['endereco'];
-$telefone = $_REQUEST['telefone'];
-$foto = $_REQUEST['foto'];
-$mapa = $_REQUEST['mapa'];
+$nome = mysqli_real_escape_string($conexao, $_REQUEST['nome']);
+$email = mysqli_real_escape_string($conexao, $_REQUEST['email']);
+$cnpj = mysqli_real_escape_string($conexao, $_REQUEST['cnpj']);
+$senha = mysqli_real_escape_string($conexao, $_REQUEST['senha']);
+$endereco = mysqli_real_escape_string($conexao, $_REQUEST['endereco']);
+$telefone = mysqli_real_escape_string($conexao, $_REQUEST['telefone']);
+$foto = mysqli_real_escape_string($conexao, salvarUpload('foto', 'mercados'));
+$mapa = mysqli_real_escape_string($conexao, $_REQUEST['mapa']);
 
 //inserção em SQL - linguagem do banco
 $sql = "INSERT INTO mercado(nome, email, cnpj, senha, endereco, telefone, foto, mapa) 
